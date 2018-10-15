@@ -2,6 +2,7 @@
 // 그리고 앞으로는 그냥 조온나 코드바꾸기!
 // overload operator 왠만하면 넣고 싶은데ㅠㅠㅠㅠㅠㅠ
 // 순서바꾸기, 하나씩 지워보
+// connectivity.txt add
 
 /*
  *  C++ Assignment01 Main.cpp
