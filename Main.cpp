@@ -1,8 +1,3 @@
-// 다른건 다 못한다고 쳐도 그 2번 아웃풋하는거 에드 해야함 ㅠㅠㅠㅠㅠㅠ 이거라도 안하면 안됨
-// 그리고 앞으로는 그냥 조온나 코드바꾸기!
-// overload operator 왠만하면 넣고 싶은데ㅠㅠㅠㅠㅠㅠ
-// 순서바꾸기, 하나씩 지워보
-// connectivity.txt add
 
 /*
  *  C++ Assignment01 Main.cpp
@@ -20,8 +15,8 @@ const double p{ 0.85 };
 
 int main()
 {
-    ifstream f1;
     string filename;
+    ifstream f1;
 
     cout << "Please write the filename that you want to open: " << endl;
 
@@ -37,7 +32,7 @@ int main()
         }
         f1.close();
     }
-    else {cout << "Cannot Open the File, Try Again." << endl;}
+    else {cout << "Cannot Open the File, Please Try Again." << endl;}
 
     Matrix G(range);
     cout << "Printing Initial Matrix :  \n" << G << endl;
@@ -46,18 +41,17 @@ int main()
 
     Matrix S = G.outDegree();
     cout << "Printing OutDegree to check if Sum is Zero : \n\n" << S << endl;
-
     S.randomWalk(p);
     cout << "Printing Connectivity Matrix after the randomwalk : \n\n" << S << endl;
 
     Matrix Q(range);
     Q.everyOne();
-    cout << "Printing Matrix Q : \n" << Q << endl;
+    cout << "Printing Matrix Q : \n\n" << Q << endl;
     Q.randomWalk((1-p));
-    cout << "Printing new Matrix Q after multiplication : \n" << Q << endl;
+    cout << "Printing new Matrix Q after multiplication : \n\n" << Q << endl;
 
     Matrix M = S + Q;
-    cout << "Printing Matrix M : \n"<< M << endl;
+    cout << "Printing Matrix M : \n\n"<< M << endl;
 
     Matrix rank(2);
     rank.fillOne();
@@ -80,7 +74,6 @@ int main()
     rank.print();
 
     rank.scaleRank();
-
     rank.print();
 
     ofstream f2;

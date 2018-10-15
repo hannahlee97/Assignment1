@@ -1,3 +1,4 @@
+
 /*
  *  C++ Assignment01 Matrix.cpp
  */
@@ -53,6 +54,7 @@ inline void Matrix::set_value(int row, int column, double value)
     int index = row * range + column;
     numbers[index] = value;
 }
+
 
 double Matrix::get_value(int x)
 {
@@ -200,6 +202,7 @@ Matrix operator-(Matrix left, const Matrix & right)
     return left;
 }
 
+// Random Walking
 void Matrix::randomWalk(double probability)
 {
     for(int i = 0; i < range * range; ++i) {
@@ -207,7 +210,8 @@ void Matrix::randomWalk(double probability)
     }
 }
 
-// gets the sum of column and then divide each content of that column to their sum column value value/sum
+// Function to get the sum of column and divide each numbers of that column to
+// the sum column value
 Matrix Matrix::outDegree()
 {
     Matrix m(range);
@@ -235,6 +239,7 @@ Matrix Matrix::outDegree()
     return m;
 }
 
+
 void Matrix::everyOne()
 {
     double temp = 1 / (double)range;
@@ -242,17 +247,6 @@ void Matrix::everyOne()
         for(int j = 0; j < range; ++j) {
             numbers[i * range + j] = temp;
         }
-    }
-}
-
-void Matrix::scaleRank()
-{
-    double sum = 0;
-    for (int i = 0; i < range * range; ++i) {
-        sum += numbers[i];
-    }
-    for (int i = 0; i < range * range; ++i) {
-        numbers[i] /= sum;
     }
 }
 
@@ -273,6 +267,7 @@ Matrix Matrix::multiplication(Matrix& right)
     return temp;
 }
 
+
 void Matrix::fillOne()
 {
     for (int i = 0; i < range*range; ++i) {
@@ -280,6 +275,7 @@ void Matrix::fillOne()
     }
 }
 
+// Printing the matrix
 void Matrix::print()
 {
     for (int i = 0; i < range * range; ++i) {
@@ -288,9 +284,22 @@ void Matrix::print()
     cout << endl;
 }
 
+// Getting the dimension of the matrix
 int Matrix::get_dimension()
 {
     return range;
+}
+
+// Last step scaling the rank so its elements sum to 1
+void Matrix::scaleRank()
+{
+    double sum = 0;
+    for (int i = 0; i < range * range; ++i) {
+        sum += numbers[i];
+    }
+    for (int i = 0; i < range * range; ++i) {
+        numbers[i] /= sum;
+    }
 }
 
 
