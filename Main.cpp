@@ -1,12 +1,3 @@
-// Things to do:
-// UML Class diagram
-// Overload operator* and operator *=
-// Output additional one (2nd)
-// Should compile without any warnings using g++
-// More commenting and probs changing of code
-// @@ UNDERSTAND @@
-// Due Tuesday night 11:59pm
-
 
 /*
  *  C++ Assignment01 Main.cpp
@@ -38,16 +29,14 @@ int main() {
         while (getline(f1, checking)) {
             range++;
         }
-        f1.close();
     } else {
         cout << "Cannot Open the File, Please Try Again." << endl;
     }
+    f1.close();
 
     Matrix G(range);
-    cout << "Printing Initial Matrix :  \n" << G << endl;
     f1.open(filename);
-    int *data;
-    data = new int[G.get_dimension()];
+
     if (f1.is_open()) {
         int r = 0;
         int c = 0;
@@ -68,42 +57,21 @@ int main() {
     }
     f1.close();
 
-    for (int i = 0; i < G.get_dimension() * G.get_dimension() ; i++) {
-        cout << data[i] << " " ;
-        if (i % 4 == 3) {
-            cout << endl;
-        }
-    }
-
-    cout << "Printing Matrix checking data import : \n" << G << endl;
-
     Matrix S = G.outDegree();
-    cout << "Printing OutDegree to check if Sum is Zero : \n\n" << S << endl;
-
 
     S.randomWalk(p);
-    cout << "Printing Connectivity Matrix after the randomwalk : \n\n" << S << endl;
 
     Matrix Q(range);
     Q.everyOne();
-    cout << "Printing Matrix Q : \n\n" << Q << endl;
     Q.randomWalk((1 - p));
-    cout << "Printing new Matrix Q after multiplication : \n\n" << Q << endl;
 
     Matrix M = S + Q;
-    cout << "Printing Matrix M : \n\n" << M << endl;
 
     Matrix rank(2);
     rank.fillOne();
     Matrix oldRank = rank;
 
-    cout << "Printing Matrix rank : " << endl;
-    oldRank.print();
-
     Matrix newRank = rank.multiplication(M);
-    cout << "Printing new rank :" << endl;
-    newRank.print();
-    cout << endl;
 
     while (oldRank != newRank) {
         oldRank = newRank;
@@ -111,10 +79,10 @@ int main() {
     }
 
     rank = newRank;
-    rank.print();
 
     rank.scaleRank();
     rank.print();
+
 
     ofstream f2;
     f2.open("Connectivity.txt");

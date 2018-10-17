@@ -1,5 +1,5 @@
 Haeun Lee
 A01003310
 
-40%
-Status: Made upto stochastic matrix. 
+90%
+Status: Almost done.... but couldnt overload operator * and *=
