@@ -18,7 +18,7 @@ public:
     Matrix(double[], double);
     Matrix(const Matrix&);
     ~Matrix();
-    inline void set_value(int, int, double);
+     void set_value(int, int, double);
     double get_value(int);
     inline double get_value(int, int) const;
     void clear();

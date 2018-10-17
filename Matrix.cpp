@@ -49,7 +49,7 @@ Matrix::Matrix(const Matrix & more) : range{ more.range }
 
 // mutator that accepts two integers representing row and column
 // and double representing new value for the specified location
-inline void Matrix::set_value(int row, int column, double value)
+ void Matrix::set_value(int row, int column, double value)
 {
     int index = row * range + column;
     numbers[index] = value;
